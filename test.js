@@ -10,6 +10,12 @@ const getCatFactsAllStaticAPI = async () => {
   console.log(data.facts);
 };
 
+const getCatFactByIndex = async (index) => {
+  const response = await fetch("http://localhost:3000/catfact/static/" + index);
+  const data = await response.json();
+  console.log(data.fact);
+};
+
 const postCatFactStaticAPI = async () => {
   const response = await fetch("http://localhost:3000/catfact/static", {
     method: "POST",
@@ -37,4 +43,5 @@ const main = async () => {
   await getCatFactsAllStaticAPI();
 };
 
-main();
+// main();
+getCatFactByIndex(2);

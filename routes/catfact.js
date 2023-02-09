@@ -24,7 +24,14 @@ router.get("/static", (req, res) => {
 });
 
 router.get("/static/all", (req, res) => {
+  res.status(200);
   res.json({ facts: cat_facts });
+});
+
+router.get("/static/:index", (req, res) => {
+  const { index } = req.params;
+  res.status(200);
+  res.json({ fact: cat_facts[index] });
 });
 
 router.get("/dynamic", async (req, res) => {
